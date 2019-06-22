@@ -1,0 +1,527 @@
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#head h1{
+    text-align: center;
+    color: #734338;
+}
+
+body {
+    line-height: 1.4em;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+    font-weight: 300;
+    /*background: #B5CAA0;*/
+    background-image: url("img/default.jpeg");
+    color: #4d4d4d;
+    font-size: 20px;
+    font-family: Georgia;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nav ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.1);
+}
+
+.nav {
+    position: absolute;
+    z-index: 11;
+    left: -7rem;
+    top: 0;
+    width: 7rem;
+    height: 100%;
+    background: #555;
+    transition: left linear .1s;
+}
+
+.nav a {
+    display: block;
+    padding: 1em 0;
+    border-bottom: 1px solid #888;
+    font-size: 8px;
+    color: #eee;
+    text-align: center;
+}
+
+.nav .avatar-big {
+    width: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+#settings-default {
+    width: 70px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#settings-red {
+    width: 70px;
+    height: 24px;
+    background-color: #F19690;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#settings-yellow {
+    width: 70px;
+    height: 24px;
+    background-color: #F1EB9E;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#settings-blue {
+    width: 70px;
+    height: 24px;
+    background-color: #BEE8F1;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#settings-green {
+    width: 70px;
+    height: 24px;
+    background-color: #C6F1C3;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.input{
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+button,
+input[type="checkbox"] {
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.edit {
+    position: relative;
+    margin: 0;
+    width: 80%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 2px solid #B19693;
+    border-radius: 5px;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.new-todo {
+    display: inline-block;
+    padding: 6px;
+    color: #6A4028;
+    border: 1px solid #FCFAF2;
+    border-radius: 5px;
+    width: 55%;
+    height: 20px;
+    background: #FCFAF2;
+    font-size: 15px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .2);
+}
+
+input:-moz-placeholder {
+    color: #6A4028;
+    font-style:italic;
+}
+
+::-webkit-input-placeholder {
+    color:#6A4028;
+    font-style:italic;
+}
+
+label[for='toggle-all'] {
+    display: none;
+}
+
+.toggle-all {
+    display: inline-block;
+    width: 45px;
+    height: 34px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    background-color: #FCFAF2;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-all:before {
+    content: '❯';
+    font-size: 22px;
+    color: #B19693;
+}
+
+.toggle-all:checked:before {
+    color: #6A4028;
+}
+
+.settings-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    background-image: url("img/settings.png");
+    background-color: rgba(1,1,1,0);
+    border:1px solid transparent
+}
+
+.voice-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    background-image: url("img/voice.png");
+    background-color: rgba(1,1,1,0);
+    border:1px solid transparent
+}
+.todoapp {
+    width: 90%;
+    height: 390px;
+}
+
+.todo-list {
+    background: #FCFAF2;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 8px 0 -3px #f6f6f6,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2),
+    0 16px 0 -6px #f6f6f6,
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.todo-list li {
+    position: relative;
+    width: 95%;
+    font-size: 20px;
+    line-height: 30px;
+    color: #6A4028;
+    border-bottom: 1px solid #B19693;
+    padding: 5px;
+    margin: 5px;
+}
+
+.todo-list li:last-child {
+    border-bottom: none;
+}
+
+.todo-list li.editing {
+    border-bottom: none;
+    padding: 0;
+}
+
+.todo-list li.editing .edit {
+    display: block;
+    /*width: 506px;*/
+    width: 80%;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+}
+
+.todo-list li.editing .view {
+    display: none;
+}
+
+.todo-list li .toggle {
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.todo-list li .toggle:after {
+    content: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+    /* content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>'); */
+}
+
+.todo-list li .toggle:checked:after {
+    content: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+.todo-list li label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+}
+
+.todo-list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+.todo-list li .top {
+    /*display: none;*/
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    /*color: #cc9a9a;*/
+    margin-bottom: 11px;
+    /*transition: color 0.2s ease-out;*/
+    background: #FCFAF2;
+    background-image: url("img/top.png");
+    border:1px solid transparent
+}
+
+/*.todo-list li .top:hover {*/
+    /*color: #af5b5e;*/
+/*}*/
+
+/*.todo-list li .top:after {*/
+    /*content: '▲';*/
+/*}*/
+
+/*.todo-list li:hover .top {*/
+    /*display: block;*/
+/*}*/
+
+.todo-list li .edit {
+    display: none;
+}
+
+.todo-list li.editing:last-child {
+    margin-bottom: -1px;
+}
+
+.footer {
+    color: #777;
+    padding: 10px 15px;
+    height: 20px;
+    text-align: center;
+    /*border-top: 1px solid #e6e6e6;*/
+}
+
+.footer:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 8px 0 -3px #f6f6f6,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2),
+    0 16px 0 -6px #f6f6f6,
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-count {
+    float: left;
+    text-align: left;
+}
+
+.todo-count strong {
+    font-weight: 300;
+}
+
+.filters {
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    right: 0;
+    left: 0;
+    float: right;
+    text-align: right;
+}
+
+.filters li {
+    display: inline;
+}
+
+.filters li a {
+    color: inherit;
+    margin: 1px;
+    padding: 1px 3px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.filters li a.selected,
+.filters li a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+
+.filters li a.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-completed{
+    color: #6A4028;
+    border: 0;
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+    padding: 5px 10px;
+    margin-top: 2px;
+    background: #FCFAF2;
+    border-radius: 4px;
+    vertical-align: baseline;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    font-family: Georgia;
+    text-align: right;
+}
+
+.info {
+    margin: 65px auto 0;
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.info p {
+    line-height: 1;
+}
+
+.info a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
+.view {
+    height: 45px;
+    width: 80%;
+}
+
+.todo-label {
+    width: 60%;
+}
+#add-todo-button {
+    height:40px;
+    width:40px;
+    display:inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    position:relative;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .2);
+    border-radius:50px;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    background: #6A4028;
+}
+
+#add-todo-button:before, #add-todo-button:after {
+    content:'';
+    height:6px;
+    width:28px;
+    display:block;
+    background:#FCFAF2;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    position:absolute;
+    top:17px;
+    left:6px;
+}
+
+#add-todo-button:after {
+    height:28px;
+    width:6px;
+    top:6px;
+    left:17px;
+}
+/*
+	Hack to remove background from Mobile Safari.
+	Can't use it globally since it destroys checkboxes in Firefox
+*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .toggle-all,
+    .todo-list li .toggle {
+        background: none;
+    }
+
+    .todo-list li .toggle {
+        height: 40px;
+    }
+
+    .toggle-all {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-appearance: none;
+        appearance: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .footer {
+        height: 50px;
+    }
+
+    .filters {
+        bottom: 10px;
+    }
+}

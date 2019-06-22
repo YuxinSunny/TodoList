@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="todo.js"></script>
+    <script src="model.js"></script>
+    <script src="provider-localStorage.js"></script>
+    <meta content="initial-scale=1,maximum-scale=1,user-scalable=no,width=320px" name="viewport"/>
+</head>
+<body>
+
+<div id="head">
+    <h1>Todo List</h1>
+
+    <button class="settings-button"></button>
+    <button class="voice-button"></button>
+
+    <div class="mask"></div>
+    <!-- 侧边栏 -->
+    <div class="nav">
+        <ul>
+            <li>
+                <a>
+                    <img src="./img/home.png" class="avatar-big" alt="">
+                </a>
+            </li>
+            <li>
+                <a>Default
+                    <div id="settings-default"></div>
+                </a>
+            </li>
+            <li>
+                <a>Red
+                <div id="settings-red"></div>
+                </a>
+            </li>
+            <li>
+                <a>Yellow
+                <div id="settings-yellow"></div>
+                </a>
+            </li>
+            <li>
+                <a>Blue
+                <div id="settings-blue"></div>
+                </a>
+            </li>
+            <li>
+                <a>Green
+                <div id="settings-green"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="input">
+    <input class="toggle-all" type="checkbox">
+    <input class="new-todo" type="text" autofocus/>
+    <span id="add-todo-button"></span>
+</div>
+
+<div class="todoapp">
+        <!-- Show List -->
+        <ul class="todo-list"></ul>
+
+        <footer class="footer">
+            <span class="todo-count"></span>
+            <div>
+            <ul class="filters">
+                <li><a class="selected" style="cursor:pointer;">All</a></li>
+                <li><a class="" style="cursor:pointer;">Active</a></li>
+                <li><a class="" style="cursor:pointer;">Completed</a></li>
+            </ul>
+            <button class="clear-completed"><label>Clear completed</label></button>
+            </div>
+        </footer>
+
+</div>
+
+</body>
+</html>
